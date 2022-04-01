@@ -95,7 +95,7 @@ export default function Profile({ spotifyToken, currentUser }) {
         // hit the auth locked endpoint
         const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/profile`, options)
         const gameArrayData = response.data.map(element => {
-          return { gameId: element._id, artistName: element.artistName, score: element.score, difficulty: element.difficulty, songs: element.songsPlayed, date: new Date(element.createdAt) }
+          return { gameId: element._id, artistName: element.artistName, artistId: element.artistId, score: element.score, difficulty: element.difficulty, songs: element.songsPlayed, date: new Date(element.createdAt) }
         })
         setGameHistory(gameArrayData)
         summaryDetails()
